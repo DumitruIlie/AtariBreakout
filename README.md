@@ -1,2 +1,3 @@
-# AtariBreakout
- A version of the Atari Breakout game
+A version of the Atari Breakout game
+
+Ilie Dumitru
