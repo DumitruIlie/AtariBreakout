@@ -10,7 +10,7 @@ struct Block
 
 const int LAT=5, INA=5, BLKLAT=64, BLKH=32, MAXH=INA*(BLKH+2)+242, MAXW=LAT*(BLKLAT+3)+25, D=101, R=3;
 const float L=D*0.5f;
-int level=6, CULORI[7]={COLOR(255, 240, 200), COLOR(200, 20, 20), COLOR(20, 200, 20), COLOR(20, 20, 200), COLOR(255, 255, 255), COLOR(0, 0, 0), COLOR(64, 64, 64)}, score=0, scorelevel;
+int level=6, CULORI[]={COLOR(255, 240, 200), COLOR(200, 20, 20), COLOR(20, 200, 20), COLOR(20, 20, 200), COLOR(255, 255, 255), COLOR(0, 0, 0), COLOR(64, 64, 64), COLOR(64, 64, 64)}, score=0, scorelevel;
 
 bool playBrickBreak();
 
@@ -60,16 +60,9 @@ bool playBrickBreak()
             if(mat[i][j].block)
             {
                 if(mat[i][j].nrHits==-1)
-                {
                     mat[i][j].nrHits=7;
-                    setfillstyle(1, CULORI[6]);
-                    bar(mat[i][j].xL, mat[i][j].yU, mat[i][j].xL+BLKLAT-3, mat[i][j].yU+BLKH-4);
-                }
-                else
-                {
-                    setfillstyle(1, CULORI[mat[i][j].nrHits]);
-                    bar(mat[i][j].xL, mat[i][j].yU, mat[i][j].xL+BLKLAT-3, mat[i][j].yU+BLKH-4);
-                }
+                setfillstyle(1, CULORI[mat[i][j].nrHits]);
+                bar(mat[i][j].xL, mat[i][j].yU, mat[i][j].xL+BLKLAT-3, mat[i][j].yU+BLKH-4);
             }
     setfillstyle(1, COLOR(20, 20, 200));
     bar((MAXW-D)>>1, MAXH-14, ((MAXW+D)>>1)-1, MAXH-6);
